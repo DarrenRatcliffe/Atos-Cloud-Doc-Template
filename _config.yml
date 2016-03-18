@@ -1,7 +1,14 @@
 # Base configuration
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-markdown: kramdown
+#markdown: kramdown
+markdown: redcarpet
+
+permalink: pretty
 highlighter: rouge
+incremental: true
+
+sass:
+  style: :compressed
 
 collections:
   pages:
@@ -10,7 +17,7 @@ collections:
 
 # Title
 name: Atos Cloud
-subtitle: Cloud Strategy & Vision
+subtitle: Atos Cloud Documentation Guide
 
 # When using this template with a project page set the baseurl to '/project-name'
 # For user/organization pages set this to an empty string
@@ -29,15 +36,48 @@ author:
 logourl: /assets/img/Canopy-logo.png
 logoalt: Canopy, The Atos Cloud logo
 
+# To expand all navigation bar entries by default, set this property to true:
+expand_nav: true
+
+
 # Navigation
 # List links that should appear in the site sidebar here
 navigation:
 - text: Home
   url: ./
   internal: true
-- text: Digital transformation
-  url: digital_transformation/
+- text: Prerequisites
+  url: prerequisites/
   internal: true
+#- text: Introduction
+#  internal: true
+- text: Add a new page
+  url: add-a-new-page/
+  internal: true
+  children:
+  - text: Make a child page
+    url: make-a-child-page/
+    internal: true
+- text: Add images
+  url: add-images/
+  internal: true
+- text: Update the config file
+  url: update-the-config-file/
+  internal: true
+  children:
+  - text: Understanding the `baseurl:` property
+    url: understanding-baseurl/
+    internal: true
+- text: GitHub setup
+  url: github-setup/
+  internal: true
+- text: Post your guide
+  url: post-your-guide/
+  internal: true
+- text: Advanced features
+  url: advanced-features/
+  internal: true
+
 - text: Example Page
   url: example_page/
   internal: true
@@ -48,9 +88,9 @@ navigation:
 # Repo list
 # List repos that you would like to appear on the homepage here
 repos:
-- name: DOCter
-  description: Jekyll template for docs
-  url: https://github.com/cfpb/DOCter
+- name: Atos Cloud Doc Template Guide
+  description: Jekyll template for docs guide
+  url: https://github.com/DarrenRatcliffe/Atos-Cloud-Doc-Template
 
 # Style Variables
 brand_color: "#0066a1"

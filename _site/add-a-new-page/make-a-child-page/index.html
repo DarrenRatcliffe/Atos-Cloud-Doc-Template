@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>
       
-        Atos Cloud
+        Make a child page - Atos Cloud
       
     </title>
     <meta name="viewport" content="width=device-width">
@@ -82,39 +82,35 @@
 </aside>
 
         <section id="main" class="main-content" role="main">
-          
-<p>This document defines the near term vision and strategy for the Atos Cloud.</p>
+          <h2 class="page-title">Make a child page</h2>
 
-<p>The Atos Cloud is not one single thing; it is an amalgamation of many cloud elements. Brought together to support the wider Atos digital transformation story.
-No single entity within Atos has the sole accountability for building all these elements. They are each built by the team best suited to the individual task. Furthermore, some cloud elements are beyond the scope of interest from a build perspective, here we will leverage our partnerships.
-Given this decentralised model it is essential that we define an overarching vision and strategy for cloud. That not only links all of these cloud elements and bridges them in to the digital story but also influences the onward evolution of them and the creation of new ones.</p>
+<p>If you want to nest a page under a parent page, first create a subdirectory of
+<code>_pages</code> that matches the file name of the parent page, minus the <code>.md</code> or
+other file extension. For example, the directory containing this page is
+<a href="https://github.com/DarrenRatcliffe/Atos-Cloud-Doc-Template/tree/18f-pages/_pages/add-a-new-page/"><code>_pages/add-a-new-page</code></a>.</p>
 
+<p>Then follow the instructions to <a href="/add-a-new-page/">add a new page</a> inside the child directory. Here is the front-matter for this page:</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">---</span>
+<span class="s">title</span><span class="pi">:</span> <span class="s">Make a child page</span>
+<span class="nn">---</span>
+</code></pre></div>
+<p>Or, if the page had set its <code>permalink:</code> explicitly:</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">---</span>
+<span class="s">permalink</span><span class="pi">:</span> <span class="s">/add-a-new-page/make-a-child-page/</span>
+<span class="s">title</span><span class="pi">:</span> <span class="s">Make a child page</span>
+<span class="nn">---</span>
+</code></pre></div>
+<p>Note the <code>/parent/child/</code> format for the permalink. This way, when you&#39;re on a
+parent or child page, the children are visible in the menu. (You&#39;ll need to
+<a href="/update-the-config-file/#register-pages-in-nav-bar">run <code>./go update_nav</code></a>
+before the changes to the menu appear— read more about that in the <em>Update the
+config file</em> chapter.)</p>
 
+<h3>Next steps</h3>
 
-<section id="repositories">
-  <h2>Repositories</h2>
-  <ul class="repo-list group">
-    <li class="list-icon">
-      <img src="assets/img/octocat.png" width="25px" alt="">
-    </li>
-    
-      <li>
-        <a href="https://github.com/DarrenRatcliffe/Atos-Cloud-Doc-Template">
-          <h4>Atos Cloud Doc Template Guide</h4>
-          <p>Jekyll template for docs guide</p>
-        </a>
-      </li>
-    
-  </ul>
-</section>
+<p>Click the <em>Add images</em> entry in the table of contents to learn how to add
+images to your guide.</p>
 
-
-<div id="home">
-  <h2>Posts</h2>
-  <ul class="posts">
-    
-  </ul>
-</div>
 
         </section>
 
@@ -123,9 +119,8 @@ Given this decentralised model it is essential that we define an overarching vis
       <footer role="contentinfo">
         <div class="wrap">
           <p>This project is maintained by <a href="http://www.atos.net/cloud">Atos</a>.</p>
-          <p>Build status <img src="https://codeship.com/projects/49ab25c0-ceb8-0133-7c75-664cd4c01036/status?branch=master"></p>
 
-      <!--    <p>Hosted on <a href="http://pages.github.com/">GitHub Pages</a>.</p> -->
+          <p>Hosted on <a href="http://pages.github.com/">GitHub Pages</a>.</p>
         </div><!--/.wrap -->
       </footer>
     </div> <!-- /.container -->

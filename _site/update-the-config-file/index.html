@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title>
+      
+        Update the config file - Atos Cloud
+      
+    </title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/assets/js/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+    <div class="container">
+      <header role="banner">
+        <div class="wrap">
+          
+            <img class="logo" src="/assets/img/Canopy-logo.png" alt="Canopy, The Atos Cloud logo">
+          
+          <h1 class="site-title"><a class="title-link" href="/">Atos Cloud</a></h1>
+        </div>
+      </header>
+
+      <div class="wrap content">
+
+        <aside>
+  <p class="intro">Atos Cloud Documentation Guide</p>
+  <a class="skip-link visuallyhidden focusable" href="#main">Skip to Main Content</a>
+  <nav class="sidebar-nav" role="navigation">
+    <ul>
+      
+        
+          <li><a href="/./">Home</a></li>
+        
+      
+        
+          <li><a href="/prerequisites/">Prerequisites</a></li>
+        
+      
+        
+          <li><a href="/add-a-new-page/">Add a new page</a></li>
+        
+      
+        
+          <li><a href="/add-images/">Add images</a></li>
+        
+      
+        
+          <li><a href="/update-the-config-file/">Update the config file</a></li>
+        
+      
+        
+          <li><a href="/github-setup/">GitHub setup</a></li>
+        
+      
+        
+          <li><a href="/post-your-guide/">Post your guide</a></li>
+        
+      
+        
+          <li><a href="/advanced-features/">Advanced features</a></li>
+        
+      
+        
+          <li><a href="/example_page/">Example Page</a></li>
+        
+      
+        
+          <li><a href="https://github.com/cfpb/DOCter">DOCter Repo</a></li>
+        
+      
+    </ul>
+  </nav>
+</aside>
+
+        <section id="main" class="main-content" role="main">
+          <h2 class="page-title">Update the config file</h2>
+
+<p>Work your way through these steps to update
+the <code>_config.yml</code> file — this configures the 18F style template for your specific guide:</p>
+
+<ul>
+<li><a href="#set-name">Set the guide name.</a></li>
+<li><a href="#set-exclude-entries">Set the <code>exclude:</code> entries.</a></li>
+<li><a href="#register-pages-in-nav-bar">Register pages in the navigation bar.</a></li>
+<li><a href="#update-repository-list">Update the repository list.</a></li>
+<li><a href="#set-back-link">Optional: Set the <code>back_link:</code> property.</a></li>
+<li><a href="#set-google-analytics">Optional: Update <code>google_analytics_ua:</code>.</a></li>
+</ul>
+
+<h3><a name="set-name"></a>Set the guide name</h3>
+
+<p>The <code>name:</code> property appears as the guide&#39;s overall title. For example:</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">name</span><span class="pi">:</span> <span class="s">Atos Cloud</span>
+</code></pre></div>
+<h3><a name="set-exclude-entries"></a>Set the <code>exclude:</code> entries</h3>
+
+<p>Make sure the <code>exclude:</code> list contains at least the following files, and add
+any other files you might have added that shouldn&#39;t appear in the
+generated <code>_site</code> directory:</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">exclude</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">.rvmrc</span>
+<span class="pi">-</span> <span class="s">.rbenv-version</span>
+<span class="pi">-</span> <span class="s">README.md</span>
+<span class="pi">-</span> <span class="s">Rakefile</span>
+<span class="pi">-</span> <span class="s">changelog.md</span>
+</code></pre></div>
+<h3><a name="register-pages-in-nav-bar"></a>Register pages in the navigation bar</h3>
+
+<p>The <code>navigation:</code> list generates the table of contents. For example,
+the <code>navigation:</code> section of this guide contains:</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">navigation</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">text</span><span class="pi">:</span> <span class="s">Home</span>
+  <span class="s">url</span><span class="pi">:</span> <span class="s">./</span>
+  <span class="s">internal</span><span class="pi">:</span> <span class="s">true</span>
+<span class="pi">-</span> <span class="s">text</span><span class="pi">:</span> <span class="s">Prerequisites</span>
+  <span class="s">url</span><span class="pi">:</span> <span class="s">prerequisites/</span>
+  <span class="s">internal</span><span class="pi">:</span> <span class="s">true</span>
+<span class="pi">-</span> <span class="s">text</span><span class="pi">:</span> <span class="s">Add a new page</span>
+  <span class="s">url</span><span class="pi">:</span> <span class="s">add-a-new-page/</span>
+  <span class="s">internal</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">children</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">text</span><span class="pi">:</span> <span class="s">Make a child page</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s">make-a-child-page/</span>
+    <span class="s">internal</span><span class="pi">:</span> <span class="s">true</span>
+<span class="pi">-</span> <span class="s">text</span><span class="pi">:</span> <span class="s">Add images</span>
+  <span class="s">url</span><span class="pi">:</span> <span class="s">add-images/</span>
+  <span class="s">internal</span><span class="pi">:</span> <span class="s">true</span>
+<span class="pi">-</span> <span class="s">text</span><span class="pi">:</span> <span class="s">Update the config file</span>
+  <span class="s">url</span><span class="pi">:</span> <span class="s">update-the-config-file/</span>
+  <span class="s">internal</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">children</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">text</span><span class="pi">:</span> <span class="s">Understanding the `baseurl:` property</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s">understanding-baseurl/</span>
+    <span class="s">internal</span><span class="pi">:</span> <span class="s">true</span>
+<span class="pi">-</span> <span class="s">text</span><span class="pi">:</span> <span class="s">GitHub setup</span>
+  <span class="s">url</span><span class="pi">:</span> <span class="s">github-setup/</span>
+  <span class="s">internal</span><span class="pi">:</span> <span class="s">true</span>
+<span class="pi">-</span> <span class="s">text</span><span class="pi">:</span> <span class="s">Post your guide</span>
+  <span class="s">url</span><span class="pi">:</span> <span class="s">post-your-guide/</span>
+  <span class="s">internal</span><span class="pi">:</span> <span class="s">true</span>
+<span class="pi">-</span> <span class="s">text</span><span class="pi">:</span> <span class="s">Advanced features</span>
+  <span class="s">url</span><span class="pi">:</span> <span class="s">advanced-features/</span>
+  <span class="s">internal</span><span class="pi">:</span> <span class="s">true</span>
+<span class="pi">-</span> <span class="s">text</span><span class="pi">:</span> <span class="s">Example Page</span>
+  <span class="s">url</span><span class="pi">:</span> <span class="s">example_page/</span>
+  <span class="s">internal</span><span class="pi">:</span> <span class="s">true</span>
+<span class="pi">-</span> <span class="s">text</span><span class="pi">:</span> <span class="s">DOCter Repo</span>
+  <span class="s">url</span><span class="pi">:</span> <span class="s">https://github.com/cfpb/DOCter</span>
+  <span class="s">internal</span><span class="pi">:</span> <span class="s">false</span>
+</code></pre></div>
+<p>After you add pages, move pages, or make changes to <code>title:</code> or <code>permalink:</code>,
+run <code>./go update_nav</code> from the root directory to produce this list (it will
+reflect the arrangement and contents of the files in your pages directory).
+After running the script, you may edit the results by hand to produce the
+desired ordering of any new pages; the order of existing entries will remain
+the same.</p>
+
+<h3><a name="update-repository-list"></a>Update the repository list</h3>
+
+<p>You&#39;ll need to update the <code>repos:</code> list to reflect the GitHub
+repository that will contain your guide. The first of these repositories
+should be the repository for the guide itself; it will be used to generate
+the <em>Edit this page</em> and <em>file an issue</em> links in the footer.</p>
+
+<p>The <code>url:</code> should be <code>https://github.com/18F/MY-NEW-GUIDE</code>, where
+<code>MY-NEW-GUIDE</code> is the name you gave your clone of the 18F/guides-template
+repository. For the <code>description:</code> property, it&#39;s OK to enter something
+generic like &quot;main repository.&quot; However, if you aren&#39;t certain about either
+value, it&#39;s also OK to enter placeholder text for these properties and change
+them later, ideally before posting to the 18F Pages server.</p>
+
+<p>The <code>repos:</code> entry of this template contains:</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">repos</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Atos Cloud Doc Template Guide</span>
+  <span class="s">description</span><span class="pi">:</span> <span class="s">Jekyll template for docs guide</span>
+  <span class="s">url</span><span class="pi">:</span> <span class="s">https://github.com/DarrenRatcliffe/Atos-Cloud-Doc-Template</span>
+
+</code></pre></div>
+<h3><a name="set-back-link"></a>Optional: set the <code>back_link:</code> property</h3>
+
+<p>The <code>back_link:</code> property produces the <em>Read more 18F Guides</em> link just under
+the title of the guide at the top of the page. If your document is not
+actually an 18F Guide, you may change this property to link to 18F Pages— or
+any other collection of documents to which your new &quot;guide&quot; actually belongs.</p>
+
+<h3><a name="set-google-analytics"></a>Optional: update <code>google_analytics_ua:</code></h3>
+
+<p>The <code>google_analytics_ua:</code> property defaults to the Google Analytics account
+identifier for all 18F Pages sites. You can override it if you prefer.</p>
+
+<h3>Next steps</h3>
+
+<p>Once you&#39;re finished updating the config file, click the <em>GitHub Setup</em>
+entry in the table of contents.</p>
+
+
+        </section>
+
+      </div><!-- /.wrap content -->
+
+      <footer role="contentinfo">
+        <div class="wrap">
+          <p>This project is maintained by <a href="http://www.atos.net/cloud">Atos</a>.</p>
+
+          <p>Hosted on <a href="http://pages.github.com/">GitHub Pages</a>.</p>
+        </div><!--/.wrap -->
+      </footer>
+    </div> <!-- /.container -->
+    
+    </body>
+</html>

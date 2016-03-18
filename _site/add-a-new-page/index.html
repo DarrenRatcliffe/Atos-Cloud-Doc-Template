@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title>
+      
+        Add a new page - Atos Cloud
+      
+    </title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/assets/js/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+    <div class="container">
+      <header role="banner">
+        <div class="wrap">
+          
+            <img class="logo" src="/assets/img/Canopy-logo.png" alt="Canopy, The Atos Cloud logo">
+          
+          <h1 class="site-title"><a class="title-link" href="/">Atos Cloud</a></h1>
+        </div>
+      </header>
+
+      <div class="wrap content">
+
+        <aside>
+  <p class="intro">Atos Cloud Documentation Guide</p>
+  <a class="skip-link visuallyhidden focusable" href="#main">Skip to Main Content</a>
+  <nav class="sidebar-nav" role="navigation">
+    <ul>
+      
+        
+          <li><a href="/./">Home</a></li>
+        
+      
+        
+          <li><a href="/prerequisites/">Prerequisites</a></li>
+        
+      
+        
+          <li><a href="/add-a-new-page/">Add a new page</a></li>
+        
+      
+        
+          <li><a href="/add-images/">Add images</a></li>
+        
+      
+        
+          <li><a href="/update-the-config-file/">Update the config file</a></li>
+        
+      
+        
+          <li><a href="/github-setup/">GitHub setup</a></li>
+        
+      
+        
+          <li><a href="/post-your-guide/">Post your guide</a></li>
+        
+      
+        
+          <li><a href="/advanced-features/">Advanced features</a></li>
+        
+      
+        
+          <li><a href="/example_page/">Example Page</a></li>
+        
+      
+        
+          <li><a href="https://github.com/cfpb/DOCter">DOCter Repo</a></li>
+        
+      
+    </ul>
+  </nav>
+</aside>
+
+        <section id="main" class="main-content" role="main">
+          <h2 class="page-title">Add a new page</h2>
+
+<p>To add new pages, create a
+<a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> file in the
+<code>_pages/</code> directory of the repository. For example, the Markdown text for
+this page is
+<a href="https://github.com/18F/guides-template/blob/18f-pages/_pages/add-a-new-page.md"><code>_pages/new-page.md</code></a>.</p>
+
+<p>The Markdown document begins with this <a href="http://jekyllrb.com/docs/frontmatter/">YAML front
+matter</a>:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">title: Add a new page
+</code></pre></div>
+<p>For most pages this will suffice. The URL of the page will match the file path
+relative to the <code>_pages</code> directory, minus the <code>.md</code> extension. For example,
+the source for this page appears as
+<a href="https://github.com/DarrenRatcliffe/Atos-Cloud-Doc-Template/tree/18f-pages/_pages/add-a-new-page.md"><code>_pages/add-a-new-page.md</code></a>.</p>
+
+<p>For the home page of your guide, the front matter should contain a
+<code>permalink: /</code> entry like this:</p>
+<div class="highlight"><pre><code class="language-YAML" data-lang="YAML">permalink: /
+title: Introduction (or whatever title you choose)
+</code></pre></div>
+<p>You can also explicitly set a <code>permalink:</code> like so:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">---
+permalink: /add-a-new-page/
+title: Add a new page
+---
+</code></pre></div>
+<p>If you add your own custom <code>permalink:</code>, <strong>the &#39;<code>/</code>&#39; at the end of the
+<code>permalink:</code> attribute is important!</strong> It ensures the page is generated as
+<code>/add-a-new-page/index.html</code>. Without it, the page generates as
+<code>/add-a-new-page.html</code>.</p>
+
+<h3>Setting the title in the navigation bar</h3>
+
+<p>By default, the title appearing in the navigation bar will match the <code>title:</code>
+specified in the front matter of the page. If you&#39;d like to specify a
+different name in the navigation bar, you can also set the <code>navtitle:</code>
+property:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">---
+title: Since brevity is the soul of wit, I'll be brief.
+navtitle: Polonius's advice
+---
+</code></pre></div>
+<h3>Link to other pages within the guide</h3>
+
+<p>Every link to another page <em>must</em> be prefixed with
+<code>{{ site.baseurl }}</code>. For example,
+this link to <a href="/add-images/">Add images</a>
+appears in the Markdown source as:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">[Add images]({{ site.baseurl }}/add-images/).
+</code></pre></div>
+<p>Also, <strong>the &#39;<code>/</code>&#39; at the end is important</strong>, but for a different reason. If
+you forget the <code>/</code>, you may get page-not-found errors when following a link
+locally. This is because the web server built into Jekyll will look for a
+<em>file</em> named <code>add-images</code> instead of an <code>add-images</code> <em>directory</em> containing an
+<code>index.html</code> file.</p>
+
+<h3>Next steps</h3>
+
+<p>Click the <em>Add images</em> entry in the table of contents to learn how
+to add images to your guide, or click <em>Make a child page</em> to see how to
+make chapters appear as children of related chapters.</p>
+
+
+        </section>
+
+      </div><!-- /.wrap content -->
+
+      <footer role="contentinfo">
+        <div class="wrap">
+          <p>This project is maintained by <a href="http://www.atos.net/cloud">Atos</a>.</p>
+
+          <p>Hosted on <a href="http://pages.github.com/">GitHub Pages</a>.</p>
+        </div><!--/.wrap -->
+      </footer>
+    </div> <!-- /.container -->
+    
+    </body>
+</html>

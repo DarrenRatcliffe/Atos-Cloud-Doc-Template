@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>
       
-        Atos Cloud
+        Understanding the `baseurl:` property - Atos Cloud
       
     </title>
     <meta name="viewport" content="width=device-width">
@@ -82,39 +82,32 @@
 </aside>
 
         <section id="main" class="main-content" role="main">
-          
-<p>This document defines the near term vision and strategy for the Atos Cloud.</p>
+          <h2 class="page-title">Understanding the `baseurl:` property</h2>
 
-<p>The Atos Cloud is not one single thing; it is an amalgamation of many cloud elements. Brought together to support the wider Atos digital transformation story.
-No single entity within Atos has the sole accountability for building all these elements. They are each built by the team best suited to the individual task. Furthermore, some cloud elements are beyond the scope of interest from a build perspective, here we will leverage our partnerships.
-Given this decentralised model it is essential that we define an overarching vision and strategy for cloud. That not only links all of these cloud elements and bridges them in to the digital story but also influences the onward evolution of them and the creation of new ones.</p>
+<p><strong>It isn&#39;t necessary to update <code>baseurl:</code> yourself in most cases. This
+section is not necessary to follow through with the reset of the
+instructions.</strong></p>
 
+<p>The <code>baseurl:</code> configuration property affects the root URL of your guide when
+served locally on your machine. When published on <a href="https://pages.18f.gov/">18F
+Pages</a>, the <code>baseurl:</code> automatically sets to the
+name of your repository, so you don&#39;t have to do that yourself.</p>
 
+<p>For example, when run locally, the URL for this guide is
+<code>http://localhost:4000/</code>. In production, the URL is
+<code>https://pages.18f.gov/guides-template/</code>.</p>
 
-<section id="repositories">
-  <h2>Repositories</h2>
-  <ul class="repo-list group">
-    <li class="list-icon">
-      <img src="assets/img/octocat.png" width="25px" alt="">
-    </li>
-    
-      <li>
-        <a href="https://github.com/DarrenRatcliffe/Atos-Cloud-Doc-Template">
-          <h4>Atos Cloud Doc Template Guide</h4>
-          <p>Jekyll template for docs guide</p>
-        </a>
-      </li>
-    
-  </ul>
-</section>
+<p>The URLs of the individual section pages are relative to the <code>baseurl:</code>. For
+example, the <code>permalink:</code> of this page is <code>/update-the-config-file/understanding-baseurl/</code>. The full local
+URL is <code>http://localhost:4000/update-the-config-file/understanding-baseurl/</code>, and in
+production it&#39;s <code>https://pages.18f.gov/guides-template/update-the-config-file/understanding-baseurl/</code>.</p>
 
+<h3>Change the <code>baseurl:</code> when serving locally</h3>
 
-<div id="home">
-  <h2>Posts</h2>
-  <ul class="posts">
-    
-  </ul>
-</div>
+<p>If you do change the <code>baseurl:</code> property in the <code>_config.yml</code> file,
+<strong>remember to include the trailing &#39;<code>/</code>&#39; when serving locally</strong>. The Jekyll
+built-in webserver doesn&#39;t redirect to it automatically.</p>
+
 
         </section>
 
@@ -123,9 +116,8 @@ Given this decentralised model it is essential that we define an overarching vis
       <footer role="contentinfo">
         <div class="wrap">
           <p>This project is maintained by <a href="http://www.atos.net/cloud">Atos</a>.</p>
-          <p>Build status <img src="https://codeship.com/projects/49ab25c0-ceb8-0133-7c75-664cd4c01036/status?branch=master"></p>
 
-      <!--    <p>Hosted on <a href="http://pages.github.com/">GitHub Pages</a>.</p> -->
+          <p>Hosted on <a href="http://pages.github.com/">GitHub Pages</a>.</p>
         </div><!--/.wrap -->
       </footer>
     </div> <!-- /.container -->

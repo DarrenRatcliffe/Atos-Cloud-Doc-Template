@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title>
+      
+        Advanced features - Atos Cloud
+      
+    </title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/assets/js/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+    <div class="container">
+      <header role="banner">
+        <div class="wrap">
+          
+            <img class="logo" src="/assets/img/Canopy-logo.png" alt="Canopy, The Atos Cloud logo">
+          
+          <h1 class="site-title"><a class="title-link" href="/">Atos Cloud</a></h1>
+        </div>
+      </header>
+
+      <div class="wrap content">
+
+        <aside>
+  <p class="intro">Atos Cloud Documentation Guide</p>
+  <a class="skip-link visuallyhidden focusable" href="#main">Skip to Main Content</a>
+  <nav class="sidebar-nav" role="navigation">
+    <ul>
+      
+        
+          <li><a href="/./">Home</a></li>
+        
+      
+        
+          <li><a href="/prerequisites/">Prerequisites</a></li>
+        
+      
+        
+          <li><a href="/add-a-new-page/">Add a new page</a></li>
+        
+      
+        
+          <li><a href="/add-images/">Add images</a></li>
+        
+      
+        
+          <li><a href="/update-the-config-file/">Update the config file</a></li>
+        
+      
+        
+          <li><a href="/github-setup/">GitHub setup</a></li>
+        
+      
+        
+          <li><a href="/post-your-guide/">Post your guide</a></li>
+        
+      
+        
+          <li><a href="/advanced-features/">Advanced features</a></li>
+        
+      
+        
+          <li><a href="/example_page/">Example Page</a></li>
+        
+      
+        
+          <li><a href="https://github.com/cfpb/DOCter">DOCter Repo</a></li>
+        
+      
+    </ul>
+  </nav>
+</aside>
+
+        <section id="main" class="main-content" role="main">
+          <h2 class="page-title">Advanced features</h2>
+
+<p>These features are not necessary to produce a guide, but are available if you
+need them.</p>
+
+<h3>Checking the build log</h3>
+
+<p>If your site did not rebuild after pushing an update, see the latest build log
+at <code>https://pages.18f.gov/MY-SITE/build.log</code>, where <code>MY-SITE</code> is the name of
+your Guide&#39;s repository. For example, the latest build log for this site is
+<a href="https://pages.18f.gov/guides-template/build.log"><code>https://pages.18f.gov/guides-template/build.log</code></a>.</p>
+
+<h3>Server-generated defaults</h3>
+
+<p>The <a href="https://www.npmjs.com/package/18f-pages-server">18F Pages Server</a> will
+generate an additional configuration file, <code>_config_18f_pages.yml</code>, that will
+contain the following configuration values:</p>
+
+<ul>
+<li><strong>baseurl:</strong> This sets <code>{{ site.baseurl }}</code> to the
+repository name without the organization prefix, e.g.  <code>/guides-template</code>
+for the <code>18F/guides-template</code> repo, resulting in
+<code>https://pages.18f.gov/guides-template/</code>. See the
+<a href="/update-the-config-file/understanding-baseurl/">Understanding the <code>baseurl:</code> property</a>
+section for details.</li>
+<li><strong>asset_root:</strong> This sets the location from which the guide will load its
+CSS and JavaScript assets.</li>
+</ul>
+
+<h3>Understanding <code>asset_root</code></h3>
+
+<p>When developing locally, this value is empty, so your assets are loaded from
+your local instance. When hosted on <code>https://pages.18f.gov/</code>, this value is
+set as <code>/guides-template</code>. This allows all pages on the host that use this
+style template to receive CSS and JavaScript updates automatically whenever
+<code>https://pages.18f.gov/guides-template</code> is updated.</p>
+
+<h3>Overriding server-generated defaults</h3>
+
+<p>If you <em>really</em> want, you can prevent the 18F Pages server from generating its
+own configuration by adding a <code>_config_18f_pages.yml</code> file to your site. The
+18F Pages server will use that file instead of generating its own.</p>
+
+<h3>Additional scripts and styles</h3>
+
+<p>If you&#39;d like to add additional scripts or styles to every page on the site,
+you can add <code>styles:</code> and <code>scripts:</code> lists to <code>_config.yml</code>. To add them to a
+particular page, add these lists to the page&#39;s front matter.</p>
+
+<h3>Overriding the theme&#39;s built-in styles</h3>
+
+<p>To override the built-in styles, create a new file in <code>assets/css</code> and add it
+to the <code>scripts:</code> list in <code>_config.yml</code>.</p>
+
+<p>However, consider sending a pull request to update the contents of
+<a href="https://github.com/18F/guides-style/tree/master/lib/guides_style_18f/sass"><code>lib/guides_style_18f/sass/</code></a>
+if your changes may be beneficial to all 18F-themed sites.</p>
+
+<h3>Experimenting with the <code>guides_style_18f</code> gem</h3>
+
+<p>To try out changes to the common 18F theme, clone the <a href="https://github.com/18F/guides-style/">18F/guides-style
+repository</a> into the same parent
+directory as your guide. Then update your <code>Gemfile</code> to point
+<code>guides_style_18f</code> to this clone:</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">group :jekyll_plugins do</span>
+  <span class="s">gem 'guides_style_18f', path</span><span class="pi">:</span> <span class="s1">'</span><span class="s">../guides-style'</span>
+<span class="s">end</span>
+</code></pre></div>
+<p>Then run <code>bundle install</code> and <code>./go serve</code> to begin using the local version of
+<code>guides_style_18f</code>. Any changes within your <code>guides-style</code> clone will appear
+in your locally-hosted guide upon reload.</p>
+
+<h3>Publishing to internal sites</h3>
+
+<p>There are several 18F Pages hosts that require OAuth2 authentication to
+access. To publish to one of these hosts, push changes to the following
+branches:</p>
+
+<ul>
+<li><strong><code>18f-pages-staging</code></strong>: publishes to <code>https://pages-staging.18f.gov/</code></li>
+<li><strong><code>18f-pages-internal</code></strong>: publishes to <code>https://pages-internal.18f.gov/</code></li>
+<li><strong><code>18f-pages-dev</code></strong>: publishes to <code>https://pages-dev.18f.gov/</code></li>
+</ul>
+
+<p>There is one other internal host, <code>https://pages-releases.18f.gov/</code>, which
+does something special. If you publish to a branch matching the pattern
+<code>v[0-9]+.[0-9]+.[0-9]*[a-z]+</code>, your site will appear on this host with
+<code>baseurl</code> set to <code>REPOSITORY/BRANCH</code>. For example, pushing to a branch called
+<code>v0.9.x</code> within <code>18F/guides-template</code> would publish
+<code>https://pages-releases.18f.gov/guides-template/v0.9.x</code>.</p>
+
+<h3>Publishing to internal and external sites from the same branch</h3>
+
+<p>By adding an optional <code>_config_internal.yml</code> file to your guide, your site
+will appear at <code>https://pages-internal.18f.gov/</code> as well as
+<code>https://pages.18f.gov</code>. If the contents of this file contain:</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">internal</span><span class="pi">:</span> <span class="s">true</span>
+</code></pre></div>
+<p>then you can ensure that sections formatted with the following markup only appear on
+<code>pages-internal.18f.gov</code>, and are stripped out of the public-facing
+<code>pages.18f.gov</code>:</p>
+
+<pre>
+{% if site.internal %}TEXT TO BE REDACTED FROM PUBLIC PRODUCTION + STAGING{% endif %}
+</pre>
+
+<p>For more details, see the <a href="https://github.com/18F/pages-server#publishing-to-internal-and-external-sites-from-the-same-branch"><code>18f-pages-server</code>
+README</a>.</p>
+
+
+        </section>
+
+      </div><!-- /.wrap content -->
+
+      <footer role="contentinfo">
+        <div class="wrap">
+          <p>This project is maintained by <a href="http://www.atos.net/cloud">Atos</a>.</p>
+
+          <p>Hosted on <a href="http://pages.github.com/">GitHub Pages</a>.</p>
+        </div><!--/.wrap -->
+      </footer>
+    </div> <!-- /.container -->
+    
+    </body>
+</html>

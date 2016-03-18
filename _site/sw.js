@@ -11,9 +11,9 @@ var filesToCache = [
   // images
   '/assets/img/octocat.png',
   // pages
-  '/digital_transformation/','/example_page/','/jekyll/update/2013/11/20/welcome-to-jekyll.html',
+  '/add-a-new-page/','/add-a-new-page/make-a-child-page/','/add-images/','/advanced-features/','/example_page/','/github-setup/','/post-your-guide/','/prerequisites/','/update-the-config-file/','/update-the-config-file/understanding-baseurl/','',
   // posts
-  '/jekyll/update/2013/11/20/welcome-to-jekyll.html',
+  
 ];
 
 self.addEventListener( 'install', function( e ) {

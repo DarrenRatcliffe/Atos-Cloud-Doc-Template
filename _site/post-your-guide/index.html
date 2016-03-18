@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title>
+      
+        Post your guide - Atos Cloud
+      
+    </title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/assets/js/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+    <div class="container">
+      <header role="banner">
+        <div class="wrap">
+          
+            <img class="logo" src="/assets/img/Canopy-logo.png" alt="Canopy, The Atos Cloud logo">
+          
+          <h1 class="site-title"><a class="title-link" href="/">Atos Cloud</a></h1>
+        </div>
+      </header>
+
+      <div class="wrap content">
+
+        <aside>
+  <p class="intro">Atos Cloud Documentation Guide</p>
+  <a class="skip-link visuallyhidden focusable" href="#main">Skip to Main Content</a>
+  <nav class="sidebar-nav" role="navigation">
+    <ul>
+      
+        
+          <li><a href="/./">Home</a></li>
+        
+      
+        
+          <li><a href="/prerequisites/">Prerequisites</a></li>
+        
+      
+        
+          <li><a href="/add-a-new-page/">Add a new page</a></li>
+        
+      
+        
+          <li><a href="/add-images/">Add images</a></li>
+        
+      
+        
+          <li><a href="/update-the-config-file/">Update the config file</a></li>
+        
+      
+        
+          <li><a href="/github-setup/">GitHub setup</a></li>
+        
+      
+        
+          <li><a href="/post-your-guide/">Post your guide</a></li>
+        
+      
+        
+          <li><a href="/advanced-features/">Advanced features</a></li>
+        
+      
+        
+          <li><a href="/example_page/">Example Page</a></li>
+        
+      
+        
+          <li><a href="https://github.com/cfpb/DOCter">DOCter Repo</a></li>
+        
+      
+    </ul>
+  </nav>
+</aside>
+
+        <section id="main" class="main-content" role="main">
+          <h2 class="page-title">Post your guide</h2>
+
+<p>Work your way through these steps to set up automated publishing to <a href="https://pages.18f.gov/">18F
+Pages</a> for your new guide:</p>
+
+<ul>
+<li><a href="#create-18f-pages-branch">Create the <code>18f-pages</code> branch.</a></li>
+<li><a href="#set-default-branch">Set the default branch.</a></li>
+<li><a href="#set-webhook">Create the publishing webhook.</a></li>
+<li><a href="#trigger-a-build">Trigger a build.</a></li>
+<li><a href="#add-new-guide">Add the new guide to 18F Guides.</a></li>
+</ul>
+
+<h3><a name="create-18f-pages-branch"></a>Create the <code>18f-pages</code> branch</h3>
+
+<p><strong>If you ran the <code>./go create_repo</code> command from the <em>GitHub setup</em> chapter,
+you can skip ahead to the <a href="#set-webhook">Create the publishing webhook</a>
+section.  Otherwise, keep reading.</strong></p>
+
+<p>To publish your guide automatically to <code>pages.18f.gov</code>, you&#39;ll need
+to create an <code>18f-pages</code> branch. You can do this using the GitHub interface by
+clicking the <strong>branch: master</strong> button and entering <code>18f-pages</code> in the <strong>Switch
+branches/tags</strong> drop-down box:</p>
+
+<p><img src="/images/18f-pages.png" alt="GitHub branch creation
+interface"></p>
+
+<h3><a name="set-default-branch"></a>Set the default branch</h3>
+
+<p><em>Note: If your repository is not just a Jekyll site — for example, if it&#39;s a project
+repository with a <code>gh-pages</code> or <code>18f-pages</code> branch for documentation — you can
+ignore this step.</em></p>
+
+<p>You also need to set <code>18f-pages</code> branch as the default. First, click the <strong>Settings</strong> page button on the right side of the screen:<br/>
+<img src="/images/gh-settings-button.png" alt="GitHub settings page button"></p>
+
+<p>This will present you with the <strong>Options</strong> page. In the <strong>Settings</strong> section, select <code>18f-pages</code> from the <strong>Default branch</strong> drop-down menu:<br/>
+<img src="/images/gh-default-branch.png" alt="GitHub default branch option"></p>
+
+<p>Deleting the original <code>master</code> branch, both on GitHub and locally, is left as
+an exercise for the reader. Doing so will help avoid confusion in the long run
+but isn&#39;t strictly necessary.</p>
+
+<h3><a name="set-webhook"></a>Create the publishing webhook</h3>
+
+<p><strong>18F Team members can skip this step!</strong> Our pages are now building via an
+organization-wide GitHub webhook. There is no need to set up a repo-specific
+webhook anymore.</p>
+
+<p><strong>Other users running their own <a href="https://github.com/18F/pages/">18F/pages</a>
+instance:</strong> You can either set up a webhook for your organization, or you can
+add it per-repository as described below. The steps are nearly identical in
+either case.</p>
+
+<p>Go into the <strong>Webhooks &amp; Services</strong> section of the <strong>Settings</strong> section
+and click the <strong>Add webhook</strong> button. On the following screen, set the
+<strong>Payload URL</strong> to <code>https://pages.18f.gov/deploy</code>, leave the <strong>Secret</strong> field
+blank, and click <strong>Update webhook</strong>:</p>
+
+<p><img src="/images/gh-webhook.png" alt="Set the GitHub webhook"></p>
+
+<h3><a name="trigger-a-build"></a>Trigger a build</h3>
+
+<p>With the webhook in place, push any update to your <code>18f-pages</code> branch to your
+GitHub repository. Within seconds, your guide should appear at
+<code>https://pages.18f.gov/MY-NEW-GUIDE</code>. Your guide is now live!</p>
+
+<h3><a name="add-new-guide"></a>Add the new guide to 18F Guides</h3>
+
+<p>You&#39;ve reached the final step! Add an entry to the <code>navigation:</code> list of <a href="http://18f.github.io/guides/">18F
+Guides</a> linking to your new guide. You can <a href="https://github.com/18F/guides/edit/18f-pages/_config.yml">use
+this link to edit the file directly in
+GitHub</a>:</p>
+
+<p><img src="/images/gh-add-guide.png" alt="Add the new guide to 18F Guides using the GitHub text editor"></p>
+
+<p>Congratulations! Your guide should now be published and accessible to the world
+as one of the few, the proud, the <a href="https://pages.18f.gov/guides/">18F Guides</a>!</p>
+
+
+        </section>
+
+      </div><!-- /.wrap content -->
+
+      <footer role="contentinfo">
+        <div class="wrap">
+          <p>This project is maintained by <a href="http://www.atos.net/cloud">Atos</a>.</p>
+
+          <p>Hosted on <a href="http://pages.github.com/">GitHub Pages</a>.</p>
+        </div><!--/.wrap -->
+      </footer>
+    </div> <!-- /.container -->
+    
+    </body>
+</html>

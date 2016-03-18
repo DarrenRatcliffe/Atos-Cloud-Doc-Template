@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title>
+      
+        GitHub setup - Atos Cloud
+      
+    </title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/assets/js/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+    <div class="container">
+      <header role="banner">
+        <div class="wrap">
+          
+            <img class="logo" src="/assets/img/Canopy-logo.png" alt="Canopy, The Atos Cloud logo">
+          
+          <h1 class="site-title"><a class="title-link" href="/">Atos Cloud</a></h1>
+        </div>
+      </header>
+
+      <div class="wrap content">
+
+        <aside>
+  <p class="intro">Atos Cloud Documentation Guide</p>
+  <a class="skip-link visuallyhidden focusable" href="#main">Skip to Main Content</a>
+  <nav class="sidebar-nav" role="navigation">
+    <ul>
+      
+        
+          <li><a href="/./">Home</a></li>
+        
+      
+        
+          <li><a href="/prerequisites/">Prerequisites</a></li>
+        
+      
+        
+          <li><a href="/add-a-new-page/">Add a new page</a></li>
+        
+      
+        
+          <li><a href="/add-images/">Add images</a></li>
+        
+      
+        
+          <li><a href="/update-the-config-file/">Update the config file</a></li>
+        
+      
+        
+          <li><a href="/github-setup/">GitHub setup</a></li>
+        
+      
+        
+          <li><a href="/post-your-guide/">Post your guide</a></li>
+        
+      
+        
+          <li><a href="/advanced-features/">Advanced features</a></li>
+        
+      
+        
+          <li><a href="/example_page/">Example Page</a></li>
+        
+      
+        
+          <li><a href="https://github.com/cfpb/DOCter">DOCter Repo</a></li>
+        
+      
+    </ul>
+  </nav>
+</aside>
+
+        <section id="main" class="main-content" role="main">
+          <h2 class="page-title">GitHub setup</h2>
+
+<p>Work your way through these steps to prepare your GitHub repository:</p>
+
+<ul>
+<li><a href="#create-local-repo">Create a new local repository.</a></li>
+<li><a href="#set-up-ssh">Set up SSH access to GitHub.</a></li>
+<li><a href="#create-18f-repo">Create a new 18F GitHub repository.</a></li>
+</ul>
+
+<h3><a name="create-local-repo"></a>Create a new local repository</h3>
+
+<p>Once you&#39;ve got the <code>_config.yml</code> file up to date, detach your new
+guide&#39;s history from the template&#39;s. Do this by replacing the
+original local Git repository — the one your guide inherited — from the template with a
+completely new local repository, which won&#39;t contain the history from the
+template and will become the starting point for your new GitHub repository.</p>
+
+<p>In the top-level directory, run <code>./go create_repo</code> to remove all the pages
+and images that came with this template — make sure you didn&#39;t reuse any of the
+file names from this template! — and create a new Git repository:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">$ ./go create_repo
+
+Clearing Guides Template files.
+Removing `:create_repo` command from the `./go` script.
+Removing old git repository.
+Creating a new git repository.
+Initialized empty Git repository in .../MY-NEW-GUIDE/.git/
+Creating 18f-pages branch.
+Switched to a new branch '18f-pages'
+Adding files for initial commit.
+All done! Run 'git commit' to create your first commit.
+</code></pre></div>
+<p>Then execute <code>git commit -m &#39;Initial commit&#39;</code> to create your new Guide!
+(Unless you&#39;re Git savvy and would like to tweak things a bit first.)</p>
+
+<h3><a name="set-up-ssh"></a>Set up SSH access to GitHub</h3>
+
+<p>You may want to <a href="https://help.github.com/articles/generating-ssh-keys/">set up SSH access to
+GitHub</a> if you haven&#39;t
+already— this way you won&#39;t need to enter your password and two-factor authentication
+code every time you push changes to GitHub. Otherwise, you can use
+<code>https://github.com/18F/</code> URLs to access 18F repos.</p>
+
+<h3><a name="create-18f-repo"></a>Create a new 18F GitHub repository</h3>
+
+<p>Now you&#39;re ready to <a href="https://github.com/organizations/18F/repositories/new">create a new 18F GitHub
+repository</a>. You&#39;ll
+want to set the <code>Public</code> attribute under the <strong>Team</strong> section and add a
+fitting <code>Description</code>.</p>
+
+<p>Do <em>not</em> select <strong>Initialize this repository with a README</strong>, <strong>Add
+.gitignore</strong>, or <strong>Add a license</strong>. Instead, update the <code>README.md</code> file in
+your own, local repository, as necessary. Your local repository also already has
+<code>.gitignore</code> and <code>LICENSE.md</code> files.</p>
+
+<p>After submitting the form to create a new repository, you&#39;ll see GitHub&#39;s
+instructions to create a local repository and push your changes up to it. You can ignore these instructions. Instead, do the following, replacing <code>MY-NEW-GUIDE</code> with the name of your guide&#39;s repository:</p>
+<div class="highlight"><pre><code class="language-" data-lang=""># If you have SSH set up:
+$ git remote add origin git@github.com:18F/MY-NEW-GUIDE.git
+
+# Otherwise:
+$ git remote add origin https://github.com/18F/MY-NEW-GUIDE.git
+
+$ git push -u origin 18f-pages
+</code></pre></div>
+<p>Note that you can update the description and add a website link to the
+repository after creating it:</p>
+
+<p><img src="/images/description.png" alt="Setting the
+description and website of the GitHub repository"></p>
+
+<h3>Next steps</h3>
+
+<p>Once you&#39;ve finished the steps to create your new guide repo and push it
+to GitHub, click the <em>Post Your Guide</em> entry in the table of contents for the
+final steps to publish your guide.</p>
+
+
+        </section>
+
+      </div><!-- /.wrap content -->
+
+      <footer role="contentinfo">
+        <div class="wrap">
+          <p>This project is maintained by <a href="http://www.atos.net/cloud">Atos</a>.</p>
+
+          <p>Hosted on <a href="http://pages.github.com/">GitHub Pages</a>.</p>
+        </div><!--/.wrap -->
+      </footer>
+    </div> <!-- /.container -->
+    
+    </body>
+</html>
