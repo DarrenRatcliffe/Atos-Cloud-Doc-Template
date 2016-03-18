@@ -1,0 +1,8 @@
+---
+applications:
+- name: acs
+  memory: 64M
+  host: acs
+  path: _site/
+  buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+  stack: cflinuxfs2

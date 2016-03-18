@@ -1,0 +1,60 @@
+# Base configuration
+exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+markdown: kramdown
+highlighter: rouge
+
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+
+# Title
+name: Atos Cloud
+subtitle: Cloud Strategy & Vision
+
+# When using this template with a project page set the baseurl to '/project-name'
+# For user/organization pages set this to an empty string
+# When working locally use jekyll serve --baseurl '' so that you can view everything at localhost:4000
+# See http://jekyllrb.com/docs/github-pages/ for more info
+#baseurl: ''
+# baseurl: 'http://acs.apps.eu01.cf.canopy-cloud.com'
+baseurl: ''
+
+# Author/Organization info to be displayed in the templates
+author:
+  name: Atos
+  url: http://www.atos.net/cloud
+
+# Point the logo URL at a file in your repo or hosted elsewhere by your organization
+logourl: /assets/img/Canopy-logo.png
+logoalt: Canopy, The Atos Cloud logo
+
+# Navigation
+# List links that should appear in the site sidebar here
+navigation:
+- text: Home
+  url: ./
+  internal: true
+- text: Digital transformation
+  url: digital_transformation/
+  internal: true
+- text: Example Page
+  url: example_page/
+  internal: true
+- text: DOCter Repo
+  url: https://github.com/cfpb/DOCter
+  internal: false
+
+# Repo list
+# List repos that you would like to appear on the homepage here
+repos:
+- name: DOCter
+  description: Jekyll template for docs
+  url: https://github.com/cfpb/DOCter
+
+# Style Variables
+brand_color: "#0066a1"
+
+# Offline caching
+offline_cache: false
+cache_name: DOCter-v1.1
