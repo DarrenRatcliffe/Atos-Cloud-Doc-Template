@@ -6,3 +6,4 @@ applications:
   path: _site/
   buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
   stack: cflinuxfs2
+  instances: 2
